@@ -1,7 +1,7 @@
 module.exports = {
   apps: [{
     name: 'analyticus-insight',
-    script: './bin/www'
+    script: '../bin/www'
   }],
   deploy: {
     production: {
