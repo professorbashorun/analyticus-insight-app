@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Proximity</title>
+
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- bootstrap-daterangepicker -->
+    <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+    
+    <!-- socket.io -->
+    <script src="./javascripts/vendor/socket.io.js"></script>
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+          <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Proximity</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <img src="production/images/img.jpg" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Welcome,</span>
+                <h2>Israel Edjeren</h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <h3>Analysis</h3>
+                <ul class="nav side-menu">
+                    <li><a class="platform hidden" href="#overview"><i class="fa fa-plus-square"></i> Overview <span class="fa fa-edit" id="overview_modal"></span></a>
+                    <ul class="nav child_menu">
+                        <li class="active"><a href="#dashboard">Dashboard</a></li>
+                        <li><a href="#dashboard1">Dashboard2</a></li>
+                        <li><a href="#dashboard2">Dashboard3</a></li>
+                    </ul>
+                  </li>
+                  <li id="google_chosen_keywords_li"><a class="platform active" href="#google"><i class="fa fa-google"></i> Analytics <span class="fa fa-edit" id="google_modal"></span></a>
+                    <ul class="nav child_menu">
+                    </ul>
+                  </li>
+                  <li id="twitter_chosen_keywords_li"><a class="platform" href="#twitter"><i class="fa fa-twitter"></i> Feeds <span class="fa fa-edit" id="twitter_modal"></span></a>
+                    <ul class="nav child_menu">
+                    </ul>
+                  </li>
+                  <li id="wordpress_chosen_keywords_li"><a class="platform" href="#wordpress"><i class="fa fa-youtube"></i> Search <span class="fa fa-edit" id="wordpress_modal"></span></a>
+                    <ul class="nav child_menu">
+                    </ul>
+                  </li>
+                  <li id="wordpress_chosen_keywords_li"><a class="platform" href="#wordpress"><i class="fa fa-youtube"></i> Albums <span class="fa fa-edit" id="wordpress_modal"></span></a>
+                    <ul class="nav child_menu">
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+                <div class="col-md-3 col-sm-3 col-xs-12 pull-right">
+                    <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
+                            <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                            <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
+                        </div>
+                </div>
+            </nav>
+          </div>
+            <br/>
+        </div>
+        
+        <!-- page content -->
+        <div class="right_col" role="main">
+            
+            <!-- Bottom menu -->
+            <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                <div id="myTabContent" class="tab-content">
+                  <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                      <!-- top titles -->
+                        <div class="row tile_count">
+                          <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count"><a href="#audience" class="graph_loader" name="audience">
+                                  <span class="count_top"><i class="fa fa-user"></i> Total Audience</span>
+                            <div class="count">0000</div>
+                            <span class="count_bottom"><i class="green"></i>  </span></a>
+                          </div>
+                          <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" id="title_reaction_time_summary"><a href="#reaction_time" class="graph_loader">
+                            <span class="count_top"><i class="fa fa-clock-o"></i> <span class="picker">Average Reaction Time</span></span>
+                            <div class=" count">0000</div>
+                            <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i><span class="picker_small ">00</span>% </i> From last Week</span></a>
+                          </div>
+                          <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" id="title_activity_summary"><a href="#activity" class="graph_loader">
+                            <span class="count_top"><i class="fa fa-user"></i> <span class="picker">Average Activity</span></span>
+                            <div class="count green ">0000</div>
+                            <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i><span class="picker_small ">00</span>% </i> From last Week</span></a>
+                          </div>
+                            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" id="title_engagement_summary"><a href="#engagement" class="graph_loader">
+                            <span class="count_top"><i class="fa fa-user"></i> <span class="picker">Average Engagement</span></span>
+                            <div class="count ">0000</div>
+                            <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i><span class="picker_small">00</span>% </i> From last Week</span></a>
+                          </div>
+                          <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" id="title_reactivity_summary"><a href="#reactivity" class="graph_loader">
+                            <span class="count_top"><i class="fa fa-user"></i> <span class="picker">Average Reactivity</span></span>
+                            <div class="count ">0000</div>
+                            <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i><span class="picker_small">00</span>% </i> From last Week</span></a>
+                          </div>
+                          <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" id="title_virality_summary"><a href="#virality" class="graph_loader active">
+                            <span class="count_top"><i class="fa fa-user"></i> <span class="picker">Average Virality</span></span>
+                            <div class="count ">0000</div>
+                            <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i><span class="picker_small ">00</span>% </i> From last Week</span></a>
+                          </div>
+                        </div>
+                        <!-- /top titles-->
+                    <div class="">
+                      <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <div class="x_panel">
+                            <div class="x_content">
+                              <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+                                <div class="profile_img">
+                                  <div id="crop-avatar">
+                                    <!-- Current avatar -->
+                                    <img class="img-responsive avatar-view" src="production/images/picture.jpg" alt="Avatar" title="Change the avatar">
+                                  </div>
+                                </div>
+                                <h3>Samuel Doe</h3>
+
+                                <ul class="list-unstyled user_data">
+                                  <li><i class="fa fa-map-marker user-profile-icon"></i> San Francisco, California, USA
+                                  </li>
+
+                                  <li>
+                                    <i class="fa fa-briefcase user-profile-icon"></i> Software Engineer
+                                  </li>
+
+                                  <li class="m-top-xs">
+                                    <i class="fa fa-external-link user-profile-icon"></i>
+                                    <a href="http://www.kimlabs.com/profile/" target="_blank">www.kimlabs.com</a>
+                                  </li>
+                                </ul>
+
+                                <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
+                              </div>
+                              <div class="col-md-9 col-sm-9 col-xs-12">
+                                <div id="chart_plot" style="height:400px; class="demo-placeholder"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+                      
+                      <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                          <div class="x_panel tile fixed_height_320">
+                            <div class="x_title">
+                              <h2>Score Comparison</h2>
+                              <ul class="nav navbar-right panel_toolbox">
+                                <li class="dropdown">
+                                  <a href="#" id="edit_score_comparison" class="dropdown-toggle" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+
+                                </li>
+                                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                              </ul>
+                              <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                              <div class="widget_summary">
+                                <div class="w_left w_25">
+                                  <span>Omotola</span>
+                                </div>
+                                <div class="w_center w_55">
+                                  <div class="progress">
+                                    <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 66%;">
+                                      <span class="sr-only">60% Complete</span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="w_right w_20">
+                                  <span>123k</span>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+
+                              <div class="widget_summary">
+                                <div class="w_left w_25">
+                                  <span>Wizkid</span>
+                                </div>
+                                <div class="w_center w_55">
+                                  <div class="progress">
+                                    <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
+                                      <span class="sr-only">60% Complete</span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="w_right w_20">
+                                  <span>53k</span>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+                              <div class="widget_summary">
+                                <div class="w_left w_25">
+                                  <span>Davido</span>
+                                </div>
+                                <div class="w_center w_55">
+                                  <div class="progress">
+                                    <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">
+                                      <span class="sr-only">60% Complete</span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="w_right w_20">
+                                  <span>23k</span>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+                              <div class="widget_summary">
+                                <div class="w_left w_25">
+                                  <span>Rita</span>
+                                </div>
+                                <div class="w_center w_55">
+                                  <div class="progress">
+                                    <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 5%;">
+                                      <span class="sr-only">60% Complete</span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="w_right w_20">
+                                  <span>3k</span>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+                              <div class="widget_summary">
+                                <div class="w_left w_25">
+                                  <span>Geneveive</span>
+                                </div>
+                                <div class="w_center w_55">
+                                  <div class="progress">
+                                    <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 2%;">
+                                      <span class="sr-only">60% Complete</span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="w_right w_20">
+                                  <span>1k</span>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                          <div class="x_panel tile fixed_height_320 overflow_hidden">
+                            <div class="x_title">
+                              <h2>Campaign Distribution</h2>
+                              <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                              </ul>
+                              <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                              <table class="" style="width:100%">
+                                <tr>
+                                  <th style="width:37%;">
+                                    <p>Distribution</p>
+                                  </th>
+                                  <th>
+                                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                      <p class="">Campaign</p>
+                                    </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                      <p class="">Value</p>
+                                    </div>
+                                  </th>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <canvas class="canvasDoughnut" height="140" width="140" style="margin: 15px 10px 10px 0"></canvas>
+                                  </td>
+                                  <td>
+                                    <table class="tile_info">
+                                      <tr>  
+                                        <td>
+                                          <p><i class="fa fa-square blue"></i>Google </p>
+                                        </td>
+                                        <td>30%</td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <p><i class="fa fa-square green"></i>Facebook </p>
+                                        </td>
+                                        <td>10%</td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <p><i class="fa fa-square purple"></i>Twitter </p>
+                                        </td>
+                                        <td>20%</td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <p><i class="fa fa-square aero"></i>Instagram </p>
+                                        </td>
+                                        <td>15%</td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <p><i class="fa fa-square red"></i>Youtube </p>
+                                        </td>
+                                        <td>30%</td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+
+
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                          <div class="x_panel tile fixed_height_320">
+                            <div class="x_title">
+                              <h2>Radiographics</h2>
+                              <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                              </ul>
+                              <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                              <div class="dashboard-widget-content">
+                                <ul class="quick-list">
+                                  <li><i class="fa fa-calendar-o"></i><a href="#">Settings</a>
+                                  </li>
+                                  <li><i class="fa fa-bars"></i><a href="#">Subscription</a>
+                                  </li>
+                                  <li><i class="fa fa-bar-chart"></i><a href="#">Auto Renewal</a> </li>
+                                  <li><i class="fa fa-line-chart"></i><a href="#">Achievements</a>
+                                  </li>
+                                  <li><i class="fa fa-bar-chart"></i><a href="#">Auto Renewal</a> </li>
+                                  <li><i class="fa fa-line-chart"></i><a href="#">Achievements</a>
+                                  </li>
+                                  <li><i class="fa fa-area-chart"></i><a href="#">Logout</a>
+                                  </li>
+                                </ul>
+
+                                <div class="sidebar-widget">
+                                    <h4>Profile Completion</h4>
+                                    <canvas width="150" height="80" id="chart_gauge_01" class="" style="width: 160px; height: 100px;"></canvas>
+                                    <div class="goal-wrapper">
+                                      <span id="gauge-text" class="gauge-value pull-left">0</span>
+                                      <span class="gauge-value pull-left">%</span>
+                                      <span id="goal-text" class="goal-value pull-right">100%</span>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                            <div class="col-md-12">
+                              <div class="x_panel">
+                                <div class="x_title">
+                                  <h2>Weekly Summary <small>Activity shares</small></h2>
+                                  <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                      <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Settings 1</a>
+                                        </li>
+                                        <li><a href="#">Settings 2</a>
+                                        </li>
+                                      </ul>
+                                    </li>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                  </ul>
+                                  <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+
+                                  <div class="row" style="border-bottom: 1px solid #E0E0E0; padding-bottom: 5px; margin-bottom: 5px;">
+                                    <div class="col-md-7" style="overflow:hidden;">
+                                      <span class="sparkline_one" style="height: 160px; padding: 10px 25px;">
+                                                    <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                                                </span>
+                                      <h4 style="margin:18px">Weekly sales progress</h4>
+                                    </div>
+
+                                    <div class="col-md-5">
+                                      <div class="row" style="text-align: center;">
+                                        <div class="col-md-4">
+                                          <canvas class="canvasDoughnut" height="110" width="110" style="margin: 5px 10px 10px 0"></canvas>
+                                          <h4 style="margin:0">Bounce Rates</h4>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <canvas class="canvasDoughnut" height="110" width="110" style="margin: 5px 10px 10px 0"></canvas>
+                                          <h4 style="margin:0">New Traffic</h4>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <canvas class="canvasDoughnut" height="110" width="110" style="margin: 5px 10px 10px 0"></canvas>
+                                          <h4 style="margin:0">Device Share</h4>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                  </div>
+                  <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+                      <div class="row">
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <div class="x_panel">
+                            <div class="x_content">
+                              <div class="dashboard-widget-content">
+                                <div id="world-map-gdp" class="col-md-9 col-sm-12 col-xs-12" style="height:380px;"></div>
+                                <div class="col-md-3 hidden-small">
+                                  <h2 class="line_30">Geo-Distribution</h2>
+
+                                  <table class="countries_list">
+                                    <tbody>
+                                      <tr>
+                                        <td>United States</td>
+                                        <td class="fs15 fw700 text-right">33%</td>
+                                      </tr>
+                                      <tr>
+                                        <td>France</td>
+                                        <td class="fs15 fw700 text-right">27%</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Germany</td>
+                                        <td class="fs15 fw700 text-right">16%</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Spain</td>
+                                        <td class="fs15 fw700 text-right">11%</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Britain</td>
+                                        <td class="fs15 fw700 text-right">10%</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                  </div>
+                </div>
+                <div style="background:none; position: fixed; float:right; bottom: 0px; z-index: 20; right:0px;">
+                    <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist" >
+                      <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true"><span class="fa fa-user"></span> Profile</a>
+                      </li>
+                      <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false"><span class="fa fa-paper-plane"></span> Summary</a>
+                      </li>
+                      <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false"><span class="fa fa-map"></span> Geo</a>
+                      </li>
+                      <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false"><span class="fa fa-map"></span> Settings</a>
+                      </li>
+                    </ul>
+                </div>
+              </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+             <a href="https://yourfhanalysis.herokuapp.com">AnalyticUs</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="../vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="../vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="../vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="../vendors/iCheck/icheck.min.js"></script>
+    <!-- Skycons -->
+    <script src="../vendors/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="../vendors/Flot/jquery.flot.js"></script>
+    <script src="../vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="../vendors/Flot/jquery.flot.time.js"></script>
+    <script src="../vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="../vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="../vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="../vendors/DateJS/build/date.js"></script>
+    <!-- JQVMap -->
+    <script src="../vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="../vendors/moment/min/moment.min.js"></script>
+    <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    
+    <!-- ECharts -->
+    <script src="vendors/echarts/dist/echarts.min.js"></script>
+    <script src="vendors/echarts/map/js/world.js"></script>
+    
+    
+    <!-- ECharts -->
+    <script src="vendors//jquery.animateNumber.min.js"></script>
+    
+
+    <!-- Custom Theme Scripts -->
+    <script src="../build/js/custom.min.js"></script>
+    <!-- My init.js -->
+    <script src="../build/js/init.js"></script>
+
+  </body>
+</html>

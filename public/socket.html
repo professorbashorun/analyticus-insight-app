@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <script src="./javascripts/vendor/socket.io.js"></script>
+        <script src="./javascripts/vendor/jquery.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="javascripts/vendor/bootstrap.js" type="text/javascript"></script>
+        <link href="stylesheets/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <!-- Bootstrap -->
+        <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Font Awesome -->
+        <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <!-- NProgress -->
+        <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+
+        <!-- jQuery -->
+        <script src="vendors/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- FastClick -->
+        <script src="vendors/fastclick/lib/fastclick.js"></script>
+        <!-- NProgress -->
+        <script src="vendors/nprogress/nprogress.js"></script>
+        <!-- ECharts -->
+        <script src="vendors/echarts/dist/echarts.min.js"></script>
+        <script src="vendors/echarts/map/js/world.js"></script>
+        
+        <style>
+            .center-text{
+                margin-top: 10vh;
+                margin-left: auto;
+                margin-right: auto;
+                float: none;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <div class="modal_container"></div>
+        
+        <div class="container">
+            <div class="row">
+                <div class="container">
+                    <div class="row">
+                        <iframe name="votar" style="display:none;"></iframe>
+                        <form class="center-text" onsubmit="setup();" target="votar">
+                            <input id="search" type="search" placeholder="keyword"/>
+                            <!-- Trigger the modal with a button -->
+                        </form>
+                    </div>
+                </div>
+                <script>
+                   
+                </script>
+            </div>
+
+            
+            <div id="google_control_panel">
+                
+                
+                <!-- GOOGLE INTEREST OVER TIME SUMMARY -->
+                <h5>SEARCH INTEREST OVER TIME</h5>
+                <div id="google_interest_over_time_chart" style="height:400px"></div>
+                
+
+
+
+
+
+                <!-- GOOGLE INTEREST BY REGION SUMMARY -->
+                <!--<div id="google_interest_by_region_summary"></div>
+                <svg id="google_interest_by_region_chart"/>
+                <script>
+                    
+                </script>-->
+                
+                <!-- GOOGLE ALL KEYWORDS -->
+                <div id="google_related_topics"></div>
+                <div id="google_related_queries"></div>
+                <div id="google_chosen_keywords"></div>
+                
+                
+                <!-- GOOGLE ANALYTIC INITIALISING PANEL -->
+                <button id="google_initialise_button">SHOW GOOGLE ANALYSIS</button>
+                
+            </div>
+
+
+
+            
+            
+
+                <!-- FACEBOOK ANALYTICS INITIALISING CONTROL PANEL -->
+                <div id="facebook_control_panel">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <!-- FACEBOOK POSTS ANALYSIS VISUALIZATION -->
+                            <h5>POSTS PER WEEK</h5>
+                            <div id="facebook_posts_chart"></div>
+                        </div>
+                        <div class="col-md-10">
+                            <!-- FACEBOOK LIKE ANALYSIS VISUALIZATION -->
+                            <h5>LIKES PER WEEK</h5>
+                            <div id="facebook_likes_chart"></div>
+                        </div>
+                        <div class="col-md-10">
+                            <!-- FACEBOOK COMMENTS ANALYSIS VISUALIZATION -->
+                            <h5>COMMENTS PER WEEK</h5>
+                            <div id="facebook_comments_chart"></div>
+                        </div>
+                        <div class="col-md-10">
+                            <!-- FACEBOOK SHARES ANALYSIS VISUALIZATION -->
+                            <h5>SHARES PER WEEK</h5>
+                            <div id="facebook_shares_chart"></div>
+                        </div>
+                        <div class="col-md-10">
+                            <!-- FACEBOOK LIKE ANALYSIS VISUALIZATION -->
+                            <h5>REACTIVITY</h5>
+                            <div id="facebook_likespp_chart"></div>
+                        </div>
+                        <div class="col-md-10">
+                            <!-- FACEBOOK COMMENTS ANALYSIS VISUALIZATION -->
+                            <h5>ENGAGEMENT</h5>
+                            <div id="facebook_commentspp_chart"></div>
+                        </div>
+                        <div class="col-md-10">
+                            <!-- FACEBOOK SHARES ANALYSIS VISUALIZATION -->
+                            
+                            <h5>VIRALITY</h5>
+                            <div id="facebook_sharespp_chart"></div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <!-- FACEBOOK ALL KEYWORDS -->
+                    <div id="facebook_chosen_keywords"></div>
+                    <div id="facebook_related_pages"></div>
+                    <button id="facebook_initialise_button">LOAD FACEBOOK DATA</button>
+                </div>
+                
+
+
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
+            <!-- TWITTER ANALYTICS INITIALISING CONTROL PANEL -->
+            <div id="twitter_control_panel">
+                <!-- TWITTER ALL KEYWORDS -->
+                <div class="row">
+                    <div class="col-md-10">
+                        <!-- TWITTER POSTS ANALYSIS VISUALIZATION -->
+                        <div id="twitter_tweets_chart" style="height:400px"></div>
+                    </div>
+                    <div class="col-md-10">
+                        <!-- TWITTER COMMENTS ANALYSIS VISUALIZATION -->
+                        <div id="twitter_retweets_chart" style="height:400px"></div>
+                    </div>
+                    <div class="col-md-10">
+                        <!-- TWITTER SHARES ANALYSIS VISUALIZATION -->
+                        <div id="twitter_favourites_chart" style="height:400px"></div>
+                    </div>
+                    <div class="col-md-10">
+                        <!-- TWITTER COMMENTS ANALYSIS VISUALIZATION -->
+                        <div id="twitter_retweetspp_chart" style="height:400px"></div>
+                    </div>
+                    <div class="col-md-10">
+                        <!-- TWITTER SHARES ANALYSIS VISUALIZATION -->
+                        <div id="twitter_favouritespp_chart" style="height:400px"></div>
+                    </div>
+                </div>
+                
+                <div id="twitter_chosen_keywords"></div>
+                <div id="twitter_related_pages"></div>
+                <button id="twitter_initialise_button">LOAD TWITTER DATA</button>
+
+
+        </div>
+            
+            
+        </div>
+    
+        <script src="build/js/init.js" type="text/javascript"></script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
