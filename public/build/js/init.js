@@ -222,11 +222,11 @@ function drawBars(type, title, data, time, key){
                 data:key
             },
             toolbox: {
-                show : true,
+                show : false,
                 feature : {
                     mark : {show: true},
                     dataView : {show: true, readOnly: false},
-                    magicType : {show: true, type: ['line', 'bar',  'stack', 'tiled', 'force', 'chord', 'pie', 'funnel']},
+                    magicType : {show: false, type: ['line', 'bar',  'stack', 'tiled', 'force', 'chord', 'pie', 'funnel']},
                     restore : {show: true},
                     saveAsImage : {show: true}
                 }
@@ -299,10 +299,10 @@ function drawMultiBars(type, title, data, times){
             toolbox: {
                 show : true,
                 feature : {
-                    mark : {show: true},
-                    dataView : {show: true, readOnly: false},
-                    magicType : {show: true, type: ['line', 'bar',  'stack', 'tiled', 'force', 'chord', 'pie', 'funnel']},
-                    restore : {show: true},
+                    mark : {show: false},
+                    dataView : {show: false, readOnly: false},
+                    magicType : {show: true, type: ['line', 'bar',  'stack', 'tiled']},
+                    restore : {show: false},
                     saveAsImage : {show: true}
                 }
             },
@@ -327,6 +327,7 @@ function drawMultiBars(type, title, data, times){
             option.series[i].name = key;
             option.series[i].type = 'bar';
             option.series[i].data = data[key];
+            option.series[i].itemStyle = {normal:{color:"#ad0816"}};
             //option.series[i].markPoint = {data : [{type : 'max', name: 'maximum'},{type : 'min', name: 'minimum'}]};
             option.series[i].markLine = {data : [{type : 'average', name: 'mean'}]};
             i++;
