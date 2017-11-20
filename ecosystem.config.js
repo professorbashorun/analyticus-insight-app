@@ -7,7 +7,7 @@ module.exports = {
     production: {
       user: 'ubuntu',
       host: 'ec2-18-217-12-69.us-east-2.compute.amazonaws.com',
-      key: '/.ssh/key1026.pem',
+      key: '~/.ssh/key1026.pem',
       ref: 'master',
       repo: 'https://github.com/professorbashorun/analyticus-insight-app',
       path: '/analyticus-insight',
