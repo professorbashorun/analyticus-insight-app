@@ -33,7 +33,7 @@ module.exports = {
       ref: 'master',
       repo: 'git@github.com:professorbashorun/analyticus-insight-app.git',
       path: '/analyticus-insight',
-      'post-deploy': 'sudo git pull https://github.com/professorbashorun/analyticus-insight-app && sudo npm install && sudo pm2 startOrRestart ./ecosystem.config.js'
+      'post-deploy': /*'sudo git pull https://github.com/professorbashorun/analyticus-insight-app && */'sudo npm install && sudo pm2 startOrRestart /analyticus-ingsight/ecosystem.config.js'
     }
   }
 }
