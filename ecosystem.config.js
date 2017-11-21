@@ -32,7 +32,7 @@ module.exports = {
       key: '~/.ssh/key1026.pem',
       ref: 'origin/master',
       repo: 'git@github.com:professorbashorun/analyticus-insight-app.git',
-      path: './',
+      path: '/analyticus-insight',
       'post-deploy': 'sudo git pull https://github.com/professorbashorun/analyticus-insight-app && sudo npm install && sudo pm2 startOrRestart ./ecosystem.config.js'
     }
   }
