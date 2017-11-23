@@ -29,7 +29,7 @@
     
     
     <!-- Custom Theme Style -->
-    <link href="../build/css/custom.min.css" rel="stylesheet">
+    <link href="../build/css/custom.css" rel="stylesheet">
     
     
     <!-- socket.io -->
@@ -52,7 +52,7 @@
         <div class="col-md-3 left_col menu_fixed">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Analyticus</span></a>
+                <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Analyticus</span></a>
             </div>
               
               
@@ -119,10 +119,6 @@
                 
                 <br />
                 <br />
-                <ul class="nav side-menu">
-                    <li><a class="platform" href="#review"><img src="production/images/mailbox.jpg" class="img-thumbnail" style="height:40px"/> Leave Us a Message</a>
-                </li>
-                </ul>
                 
               </div>
             </div>
@@ -769,6 +765,50 @@
 
         <!-- footer content -->
         <footer>
+            <div class="menu_section">
+                <h3>Platforms</h3>
+                <ul class="nav side-menu">
+                    <li><a class="platform hidden" href="#overview"><i class="fa fa-plus-square"></i> Overview <span class="fa fa-edit" id="overview_modal"></span></a>
+                    <ul class="nav child_menu">
+                        <li class="active"><a href="#dashboard">Dashboard<span class="fa fa-crosshairs pull-right"></span></a></li>
+                        <li><a href="#dashboard1">Dashboard2<span class="fa fa-crosshairs pull-right"></span></a></li>
+                        <li><a href="#dashboard2">Dashboard3<span class="fa fa-crosshairs pull-right"></span></a></li>
+                    </ul>
+                  </li>
+                  <li id="google_chosen_keywords_li"><a class="platform active" href="#google"><i class="fa fa-google"></i> Google <span class="fa fa-edit" id="google_modal"></span></a>
+                    <ul class="nav child_menu">
+                    </ul>
+                  </li>
+                  <li id="twitter_chosen_keywords_li"><a class="platform" href="#twitter"><i class="fa fa-twitter"></i> Twitter <span class="fa fa-edit" id="twitter_modal"></span></a>
+                    <ul class="nav child_menu">
+                    </ul>
+                  </li>
+                  <li id="facebook_chosen_keywords_li"><a class="platform" href="#facebook"><i class="fa fa-facebook"></i> Facebook <span class="fa fa-edit" id="facebook_modal"></span></a>
+                    <ul class="nav child_menu">
+                    </ul>
+                  </li>
+                  <li id="instagram_chosen_keywords_li"><a class="platform" href="#instagram"><i class="fa fa-instagram"></i> Instagram <span class="fa fa-edit" id="instagram_modal"></span></a>
+                    <ul class="nav child_menu">
+                    </ul>
+                  </li>
+                  <li id="youtube_chosen_keywords_li"><a class="platform" href="#youtube"><i class="fa fa-youtube"></i> YouTube <span class="fa fa-edit" id="youtube_modal"></span></a>
+                    <ul class="nav child_menu">
+                    </ul>
+                  </li>
+                  <li id="wordpress_chosen_keywords_li"><a class="platform" href="#wordpress"><i class="fa fa-youtube"></i> Wordpress <span class="fa fa-edit" id="wordpress_modal"></span></a>
+                    <ul class="nav child_menu">
+                    </ul>
+                  </li>
+                  <li id="amazon_chosen_keywords_li"><a class="platform" href="#amazon"><i class="fa fa-amazon"></i> Amazon <span class="fa fa-edit"></span></a>
+                    <ul class="nav child_menu">
+                    </ul>
+                  </li>
+                </ul>
+                
+                <br />
+                <br />
+                
+              </div>
           <div class="pull-right">
              <a href="https://yourfhanalysis.herokuapp.com">Analyticus</a>
           </div>

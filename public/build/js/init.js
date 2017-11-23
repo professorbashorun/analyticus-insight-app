@@ -5,6 +5,9 @@
  */
 
 
+
+
+
 var date = new Date(Date.now()).getDate() - 7;
 var year = new Date(Date.now()).getFullYear() - 2;
 var stopDate = new Date(Date.now());
@@ -1261,18 +1264,20 @@ $("#save_state_btn").click(function(e){
 
 
 
-
-
-
-
-
 $(".graph_loader").click(function(e){
     var name = $(this).attr("name");
     if(name !== "audience"){
         var isActive = $(this).hasClass("active");
         if(!isActive){
             initActiveGL.removeClass("active");
+            initActiveGL.parents(".tile_stats_count").css({
+                "border-bottom":"0px solid #fff"
+            });
+            
             initActiveGL = $(this);
+            initActiveGL.parents(".tile_stats_count").css({
+                "border-bottom":"2px solid #fff"
+            });
             initActiveGL.addClass("active");
             var name = nameState;
             var keyword = keywordState;

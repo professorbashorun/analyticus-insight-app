@@ -69,6 +69,19 @@ module.exports = function () {
         res.sendFile(ROOT+"/index.html");
     });
     
+    app.use("/theme-blue", function(req, res){
+        res.sendFile(ROOT+"/index_1.html");
+    });
+    
+    
+    app.use("/theme-light", function(req, res){
+        res.sendFile(ROOT+"/index_2.html");
+    });
+    
+    app.use("/2", function(req, res){
+        res.sendFile(ROOT+"/index_2_1.html");
+    });
+    
     
     app.use("/login", function(req, res){
         res.sendFile(ROOT+"/login.html");
