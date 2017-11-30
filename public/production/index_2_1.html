@@ -78,7 +78,7 @@
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
-                <h3>Platforms</h3>
+                <h3></h3>
                 <ul class="nav side-menu">
                     <li><a class="platform hidden" href="#overview"><i class="fa fa-plus-square"></i> Overview <span class="fa fa-edit" id="overview_modal"></span></a>
                     <ul class="nav child_menu">
@@ -87,31 +87,35 @@
                         <li><a href="#dashboard2">Dashboard3<span class="fa fa-crosshairs pull-right"></span></a></li>
                     </ul>
                   </li>
-                  <li id="google_chosen_keywords_li"><a class="platform active" href="#google"><i class="fa fa-google"></i> Google <span class="fa fa-edit" id="google_modal"></span></a>
+                  <li><a class="active" href="#google"><i class="fa fa-flask"></i> Research <span class="fa fa-edit" id="google_modal"></span></a>
                     <ul class="nav child_menu">
                     </ul>
                   </li>
-                  <li id="twitter_chosen_keywords_li"><a class="platform" href="#twitter"><i class="fa fa-twitter"></i> Twitter <span class="fa fa-edit" id="twitter_modal"></span></a>
+                  <li><a href="#twitter"><i class="fa fa-binoculars"></i> Review <span class="fa fa-edit" id="twitter_modal"></span></a>
                     <ul class="nav child_menu">
                     </ul>
                   </li>
-                  <li id="facebook_chosen_keywords_li"><a class="platform" href="#facebook"><i class="fa fa-facebook"></i> Facebook <span class="fa fa-edit" id="facebook_modal"></span></a>
+                  <li><a href="#facebook"><i class="fa fa-eye"></i> Monitor <span class="fa fa-edit" id="facebook_modal"></span></a>
                     <ul class="nav child_menu">
                     </ul>
                   </li>
-                  <li id="instagram_chosen_keywords_li"><a class="platform" href="#instagram"><i class="fa fa-instagram"></i> Instagram <span class="fa fa-edit" id="instagram_modal"></span></a>
+                  <li><a href="#instagram"><i class="fa fa-globe"></i> Influence <span class="fa fa-edit" id="instagram_modal"></span></a>
                     <ul class="nav child_menu">
                     </ul>
                   </li>
-                  <li id="youtube_chosen_keywords_li"><a class="platform" href="#youtube"><i class="fa fa-youtube"></i> YouTube <span class="fa fa-edit" id="youtube_modal"></span></a>
+                  <li><a href="#youtube"><i class="fa fa-puzzle-piece"></i> Strategy <span class="fa fa-edit" id="youtube_modal"></span></a>
                     <ul class="nav child_menu">
                     </ul>
                   </li>
-                  <li id="wordpress_chosen_keywords_li"><a class="platform" href="#wordpress"><i class="fa fa-youtube"></i> Wordpress <span class="fa fa-edit" id="wordpress_modal"></span></a>
+                  <li><a href="#wordpress"><i class="fa fa-bullseye"></i> Engage <span class="fa fa-edit" id="wordpress_modal"></span></a>
                     <ul class="nav child_menu">
                     </ul>
                   </li>
-                  <li id="amazon_chosen_keywords_li"><a class="platform" href="#amazon"><i class="fa fa-amazon"></i> Amazon <span class="fa fa-edit"></span></a>
+                  <li><a href="#amazon"><i class="fa fa-gear"></i> Automate <span class="fa fa-edit"></span></a>
+                    <ul class="nav child_menu">
+                    </ul>
+                  </li>
+                  <li><a href="#amazon"><i class="fa fa-bar-chart"></i> Validate <span class="fa fa-edit"></span></a>
                     <ul class="nav child_menu">
                     </ul>
                   </li>
@@ -145,7 +149,8 @@
           </div>
         </div>
 
-        <!-- top navigation -->
+        
+        clea<!-- top navigation -->
         <div class="top_nav">
           <div class="nav_menu">
             <nav class="row">
@@ -175,10 +180,7 @@
           </div>
         </div>
         <!-- /top navigation -->
-        
-        
-  
-        
+            
         
         <!-- page content -->
         <div class="right_col" role="main">
@@ -222,7 +224,7 @@
 
                 <div class="row">
                   <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="dashboard_graph">
+                      <div class="dashboard_graph">
 
 
                       <!-- VISUALISATION PANE -->
@@ -762,12 +764,11 @@
         </div>
         <!-- /page content -->
         
-
+        
         <!-- footer content -->
         <footer>
-            <div class="menu_section">
-                <h3>Platforms</h3>
-                <ul class="nav side-menu">
+            <div>
+                <ul class="nav navbar-nav ">
                     <li><a class="platform hidden" href="#overview"><i class="fa fa-plus-square"></i> Overview <span class="fa fa-edit" id="overview_modal"></span></a>
                     <ul class="nav child_menu">
                         <li class="active"><a href="#dashboard">Dashboard<span class="fa fa-crosshairs pull-right"></span></a></li>
@@ -803,15 +804,12 @@
                     <ul class="nav child_menu">
                     </ul>
                   </li>
+                  <li id="add_new"><a class="platform" href="#amazon"><i class="fa fa-plus-circle"></i> Add</a>
+                    <ul class="nav child_menu">
+                    </ul>
+                  </li>
                 </ul>
-                
-                <br />
-                <br />
-                
-              </div>
-          <div class="pull-right">
-             <a href="https://yourfhanalysis.herokuapp.com">Analyticus</a>
-          </div>
+            </div>
           <div class="clearfix"></div>
         </footer>
         <!-- /footer content -->
@@ -857,8 +855,9 @@
     <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
     
     <!-- ECharts -->
-    <script src="vendors/echarts/dist/echarts-en.js"></script>
     <script src="vendors/echarts/map/js/world.js"></script>
+    <script src="vendors/echarts/dist/echarts-en.js"></script>
+    
     
     
     <!-- ECharts -->

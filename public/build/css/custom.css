@@ -493,7 +493,7 @@ body .container.body .right_col {
 
 body {
     color: #666666;
-    background: #333333;
+    background: #efefef;
     font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
     font-size: 13px;
     font-weight: 400;
@@ -917,9 +917,22 @@ a:focus {
 }
 footer {
     background: #fff;
-    padding: 15px 20px;
-    display: block
+    padding: 2px 2px;
+    position: fixed;
+    width:100%;
+    bottom:0%;
 }
+
+footer .nav>li>a{
+    color:blue;
+    border-right: 2px solid #999999;
+    padding:7px 20px;
+}
+
+footer .nav>li:last-child>a{
+    border:0px;
+}
+
 .nav-sm footer {
     margin-left: 70px
 }
