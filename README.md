@@ -1,2 +1,1 @@
-#	Ananlyticus Insight Application.
-#	To be continue...
+#	Ananlyticus
